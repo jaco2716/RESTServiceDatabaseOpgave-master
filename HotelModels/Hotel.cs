@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace HotelModels
+﻿namespace HotelModel
 {
     public class Hotel
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-using HotelModels;
+using HotelModel;
 
 namespace RESTServiceDatabaseOpgave.DBUtil
 {
@@ -29,7 +29,7 @@ namespace RESTServiceDatabaseOpgave.DBUtil
                     while (reader.Read())
                     {
                         Guest guest = new Guest();
-                        guest.GuestNr = reader.GetInt32(0);
+                        guest.Guest_No = reader.GetInt32(0);
                         guest.Name = reader.GetString(1);
                         guest.Address = reader.GetString(2);
                         GuestList.Add(guest);
@@ -46,9 +46,9 @@ namespace RESTServiceDatabaseOpgave.DBUtil
             return GuestList;
         }
 
-        public Guest GetGuestFromId(int guestNr)
+        public Guest GetGuestFromId(int Guest_No)
         {
-            string queryString = "SELECT * FROM Guest WHERE Guest_No = " + guestNr;
+            string queryString = "SELECT * FROM Guest WHERE Guest_No = " + Guest_No;
 
             Guest guest = new Guest();
 
@@ -62,7 +62,7 @@ namespace RESTServiceDatabaseOpgave.DBUtil
                 {
                     while (reader.Read())
                     {
-                        guest.GuestNr = reader.GetInt32(0);
+                        guest.Guest_No = reader.GetInt32(0);
                         guest.Name = reader.GetString(1);
                         guest.Address = reader.GetString(2);
                     }
@@ -86,7 +86,7 @@ namespace RESTServiceDatabaseOpgave.DBUtil
             {
                 SqlCommand command = new SqlCommand(queryString, connection);
 
-                command.Parameters.AddWithValue("@Number", guest.GuestNr);
+                command.Parameters.AddWithValue("@Number", guest.Guest_No);
                 command.Parameters.AddWithValue("@Name", guest.Name);
                 command.Parameters.AddWithValue("@Address", guest.Address);
 
@@ -106,16 +106,16 @@ namespace RESTServiceDatabaseOpgave.DBUtil
             }
         }
 
-        public bool UpdateGuest(Guest guest, int guestNr)
+        public bool UpdateGuest(Guest guest, int Guest_No)
         {
             //string queryString = "INSERT INTO Guest (Guest_No, Name, Address) VALUES ( @Number , @Name, @Address)";
-            string queryString = "UPDATE Guest SET Guest_No = @Number, Name = @Name, Address = @Address WHERE Guest_No = " + guestNr;
+            string queryString = "UPDATE Guest SET Guest_No = @Number, Name = @Name, Address = @Address WHERE Guest_No = " + Guest_No;
 
             using (connection)
             {
                 SqlCommand command = new SqlCommand(queryString, connection);
 
-                command.Parameters.AddWithValue("@Number", guest.GuestNr);
+                command.Parameters.AddWithValue("@Number", guest.Guest_No);
                 command.Parameters.AddWithValue("@Name", guest.Name);
                 command.Parameters.AddWithValue("@Address", guest.Address);
 
@@ -135,10 +135,10 @@ namespace RESTServiceDatabaseOpgave.DBUtil
             }
         }
 
-        public bool DeleteGuest(int guestNr)
+        public bool DeleteGuest(int Guest_No)
         {
-            string queryString = "DELETE FROM Guest WHERE Guest_No = " + guestNr;
-            //string queryString = "SELECT * FROM Guest WHERE Guest_No = " + guestNr;
+            string queryString = "DELETE FROM Guest WHERE Guest_No = " + Guest_No;
+            //string queryString = "SELECT * FROM Guest WHERE Guest_No = " + Guest_No;
 
             Guest guest = new Guest();
 

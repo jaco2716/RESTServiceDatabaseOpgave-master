@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HotelModels
+namespace HotelModel
 {
     public class Booking
     {

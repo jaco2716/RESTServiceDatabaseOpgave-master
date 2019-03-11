@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using HotelModel;
+using HotelModels;
 using Newtonsoft.Json;
 
 namespace RestConsumer
@@ -12,7 +12,7 @@ namespace RestConsumer
     class Worker
     {
 
-        private const string URI = "http://localhost:58031/api/Facilitys";
+        private const string URI = "http://localhost:58031/api/Facility";
 
         public Worker()
         {
@@ -21,27 +21,32 @@ namespace RestConsumer
         public void Start()
         {
             List<Facility> Facilitys = GetAll();
+            Delete(4);
 
             foreach (var Facility in Facilitys)
             {
                 Console.WriteLine("Facility:: " + Facility);
             }
 
-            Console.WriteLine("Henter nummer 55");
-            Console.WriteLine("Facility :: " + GetOne(55));
-
-
-            Console.WriteLine("Sletter nummer 55");
-            Console.WriteLine("Resultat = " + Delete(55));
-
-            Console.WriteLine("Opretter nyt Facility object id findes ");
-            Console.WriteLine("Resultat = " + Post(new Facility(2,'f','f','f','f','f')));
+            Console.WriteLine("Henter nummer 4");
+            Console.WriteLine("Facility :: " + GetOne(4));
 
             Console.WriteLine("Opretter nyt Facility object id findes ikke");
-            Console.WriteLine("Resultat = " + Post(new Facility(49, "Findes ikke", "vej3")));
+            Console.WriteLine("Resultat = " + Post(new Facility(4, 'f', 'f', 'f', 'f', 'f')));
 
-            Console.WriteLine("Opdaterer nr 50");
-            Console.WriteLine("Resultat = " + Put(50, new Facility(50, "Pouls", "Hillerød")));
+            Console.WriteLine("Opdaterer nr 4");
+            Console.WriteLine("Resultat = " + Put(4, new Facility(4, 't', 't', 't', 't', 't')));
+
+            Console.WriteLine("Opretter nyt Facility object id findes ");
+            Console.WriteLine("Resultat = " + Post(new Facility(4,'f','f','f','f','f')));
+
+            Console.WriteLine("Sletter nummer 4");
+            Console.WriteLine("Resultat = " + Delete(4));
+
+            Console.WriteLine("Sletter nummer 4");
+            Console.WriteLine("Resultat = " + Delete(4));
+
+
         }
 
 

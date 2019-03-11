@@ -1,4 +1,4 @@
-﻿namespace HotelModels
+﻿namespace HotelModel
 {
     public class Room
     {

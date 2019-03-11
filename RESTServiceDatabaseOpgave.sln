@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTServiceDatabaseOpgave", "RESTServiceDatabaseOpgave\RESTServiceDatabaseOpgave.csproj", "{59834789-2F89-4D88-809E-6442FE4CAAD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelModels", "HotelModels\HotelModels.csproj", "{8AC3AE4B-F856-4A98-9238-50C78F5E202B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelModel", "HotelModels\HotelModel.csproj", "{8AC3AE4B-F856-4A98-9238-50C78F5E202B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REST Consumer", "REST Consumer\REST Consumer.csproj", "{4FA45967-2960-4958-971B-4EF9B71795E3}"
 EndProject

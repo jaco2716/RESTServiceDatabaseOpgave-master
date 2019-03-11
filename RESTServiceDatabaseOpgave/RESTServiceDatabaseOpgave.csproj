@@ -268,9 +268,9 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HotelModels\HotelModels.csproj">
+    <ProjectReference Include="..\HotelModels\HotelModel.csproj">
       <Project>{8ac3ae4b-f856-4a98-9238-50c78f5e202b}</Project>
-      <Name>HotelModels</Name>
+      <Name>HotelModel</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
