@@ -4,7 +4,8 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using HotelModels;
+using ConsoleTables.Core;
+using HotelModel;
 using Newtonsoft.Json;
 
 namespace RestConsumer
@@ -23,13 +24,26 @@ namespace RestConsumer
             List<Facility> Facilitys = GetAll();
             Delete(4);
 
-            foreach (var Facility in Facilitys)
+                Console.WriteLine("t=true, f=false.");
+
+            var table = new ConsoleTable("Hotel_No", "Bar", "PoolTable", "Restaurant", "SwimmingPool", "TableTennis");
+            foreach (var Facili in Facilitys)
             {
-                Console.WriteLine("Facility:: " + Facility);
+//                Console.Write("Hotel Nr:  " + Facility.Hotel_No);
+//                Console.Write(" | Bar:  " + Facility.Bar);
+//                Console.Write(" | Pool Table: " + Facility.PoolTable);
+//                Console.Write(" | Restaurant: " + Facility.Restaurant);
+//                Console.Write(" | Swimming Pool: " + Facility.SwimmingPool);
+//                Console.Write(" | Table Tennis: " + Facility.TableTennis);
+//                Console.WriteLine();
+                //Console.WriteLine(Facili.ToString());
+                table.AddRow(Facili.Hotel_No, Facili.Bar, Facili.PoolTable, Facili.Restaurant, Facili.SwimmingPool,
+                    Facili.TableTennis);
             }
+            table.Write(Format.Alternative);
 
             Console.WriteLine("Henter nummer 4");
-            Console.WriteLine("Facility :: " + GetOne(4));
+            Console.WriteLine("Hotel Nr: " + GetOne(4).Hotel_No );
 
             Console.WriteLine("Opretter nyt Facility object id findes ikke");
             Console.WriteLine("Resultat = " + Post(new Facility(4, 'f', 'f', 'f', 'f', 'f')));

@@ -1,4 +1,6 @@
-﻿namespace HotelModel
+﻿using System.Text;
+
+namespace HotelModel
 {
     public class Facility
     {
@@ -23,5 +25,6 @@
         public char PoolTable { get; set; }
         public char Restaurant { get; set; }
         public char SwimmingPool { get; set; }
+        
     }
 }
