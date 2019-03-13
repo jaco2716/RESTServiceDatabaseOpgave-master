@@ -21,46 +21,38 @@ namespace RestConsumer
 
         public void Start()
         {
-            List<Facility> Facilitys = GetAll();
-            Delete(4);
+            List<Facility> facilities = GetAll();
 
-                Console.WriteLine("t=true, f=false.");
+            Delete(7);
+            Console.WriteLine("t=true, f=false.");
 
             var table = new ConsoleTable("Hotel_No", "Bar", "PoolTable", "Restaurant", "SwimmingPool", "TableTennis");
-            foreach (var Facili in Facilitys)
+            foreach (var Facili in facilities)
             {
-//                Console.Write("Hotel Nr:  " + Facility.Hotel_No);
-//                Console.Write(" | Bar:  " + Facility.Bar);
-//                Console.Write(" | Pool Table: " + Facility.PoolTable);
-//                Console.Write(" | Restaurant: " + Facility.Restaurant);
-//                Console.Write(" | Swimming Pool: " + Facility.SwimmingPool);
-//                Console.Write(" | Table Tennis: " + Facility.TableTennis);
-//                Console.WriteLine();
-                //Console.WriteLine(Facili.ToString());
                 table.AddRow(Facili.Hotel_No, Facili.Bar, Facili.PoolTable, Facili.Restaurant, Facili.SwimmingPool,
                     Facili.TableTennis);
             }
             table.Write(Format.Alternative);
 
-            Console.WriteLine("Henter nummer 4");
-            Console.WriteLine("Hotel Nr: " + GetOne(4).Hotel_No );
+            Console.WriteLine("Opretter nyt Facility | Resultat = " + Post(new Facility(7, 't', 'f', 't', 'f', 't')));
+            Console.WriteLine();
+            Console.WriteLine("Har det nye Facility Bar?");
+            Console.WriteLine("Hotel Nr: " + GetOne(7).Hotel_No + ", Bar: " + ((GetOne(7).Bar == 't') ? "true" : "false"));
+            Console.WriteLine();
+            Console.WriteLine("Opdatere Facilty 7 til uden Bar | Resultat = " + Put(7, new Facility(7,'f','f','t','f','t')));
+            Console.WriteLine("Printer alle Facilities igen");
 
-            Console.WriteLine("Opretter nyt Facility object id findes ikke");
-            Console.WriteLine("Resultat = " + Post(new Facility(4, 'f', 'f', 'f', 'f', 'f')));
+            facilities = GetAll();
+            table = new ConsoleTable("Hotel_No", "Bar", "PoolTable", "Restaurant", "SwimmingPool", "TableTennis");
+            foreach (var Facili in facilities)
+            {
+                table.AddRow(Facili.Hotel_No, Facili.Bar, Facili.PoolTable, Facili.Restaurant, Facili.SwimmingPool,
+                    Facili.TableTennis);
+            }
+            table.Write(Format.Alternative);
 
-            Console.WriteLine("Opdaterer nr 4");
-            Console.WriteLine("Resultat = " + Put(4, new Facility(4, 't', 't', 't', 't', 't')));
-
-            Console.WriteLine("Opretter nyt Facility object id findes ");
-            Console.WriteLine("Resultat = " + Post(new Facility(4,'f','f','f','f','f')));
-
-            Console.WriteLine("Sletter nummer 4");
-            Console.WriteLine("Resultat = " + Delete(4));
-
-            Console.WriteLine("Sletter nummer 4");
-            Console.WriteLine("Resultat = " + Delete(4));
-
-
+            Console.WriteLine();
+            Console.WriteLine("Sletter Facility 7 | Resultat = "+ Delete(7));
         }
 
 
