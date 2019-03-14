@@ -32,7 +32,7 @@ namespace RestConsumer
                 table.AddRow(Facili.Hotel_No, Facili.Bar, Facili.PoolTable, Facili.Restaurant, Facili.SwimmingPool,
                     Facili.TableTennis);
             }
-            table.Write(Format.Alternative);
+            table.Write(Format.Default);
 
             Console.WriteLine("Opretter nyt Facility | Resultat = " + Post(new Facility(7, 't', 'f', 't', 'f', 't')));
             Console.WriteLine();
@@ -49,7 +49,7 @@ namespace RestConsumer
                 table.AddRow(Facili.Hotel_No, Facili.Bar, Facili.PoolTable, Facili.Restaurant, Facili.SwimmingPool,
                     Facili.TableTennis);
             }
-            table.Write(Format.Alternative);
+            table.Write(Format.Default);
 
             Console.WriteLine();
             Console.WriteLine("Sletter Facility 7 | Resultat = "+ Delete(7));
